@@ -1,0 +1,1207 @@
+@import "./partials/mixins";
+@import "./partials/fonts";
+
+html, body {
+ margin: 0;
+ padding: 0; 
+ font-family: 'Ubuntu', sans-serif;
+ font-size: 10px;
+ box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+  color: #363738;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    padding-bottom: 7px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 12px;
+  }
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 200;
+  margin: 0;
+  padding: 2px 0;
+  color: $color1-1;
+
+  @include tablet {
+    font-size: 14px;
+    font-weight: 100;
+  }
+
+  @include desktop {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+a {text-decoration: none;}
+
+a.navbar__link:visited {
+  width: 500px;
+  text-emphasis: none;
+  color: $color0;
+}
+
+// NAVBAR
+.navbar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 80px;
+  padding: 50vh auto 0;
+  background-color: $color2; 
+  color: $color1;
+  box-sizing: border-box;
+
+  @include tablet {justify-content: flex-start;}
+  @include desktop {
+    height: 68px;
+    @include padding-lr-150;
+  }
+
+    &__header {
+      width: 100%;
+      padding: 10px 0 0 0;
+      margin: 0 auto;
+      font-size: 26px;
+
+      @include tablet {
+        font-size: 28px;
+        width: 220px;
+        height: auto;
+        margin: 0 10% 0 20px;
+        padding: 0;
+        justify-self: center;
+      }
+
+      @include desktop {
+        margin-left: 0;
+        margin-right: 60px;
+        font-size: 26px;
+      }
+    }
+
+    &__link {
+      margin-left: 5px;
+      width: 600px;
+
+      @include desktop {
+        margin-left: 0;
+        width: 600px;
+      }
+    }
+
+    &__nav-links {
+      padding: 8px 0;
+      width: 40%;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 16px;
+      box-sizing: border-box;
+      color: $color1-1;
+
+      filter: opacity(65%);
+      transition: .3s ease-in-out;
+
+      &:hover {filter: opacity(100%);}
+
+      @include tablet {
+        align-self: flex-end;
+        width: 22%;
+        height: auto;
+        margin: 0 8px 0 28px;
+        border-bottom: 4px solid $color2;
+        padding: 27px 0;
+      }
+
+      @include desktop {
+        width: 22%;
+        margin-left: 0px;
+        margin-right: 25px;
+        padding: 22px 0;
+        font-size: 12px;
+      }
+
+      &--active {
+        color: $color0;
+        // border-bottom: 4px solid $color0;
+        padding: 8px 0;
+        filter: blur(0);
+        font-size: 16px;
+
+        @include tablet {padding: 27px 0;}
+        @include desktop {
+          padding: 22px 0px;
+          margin-right: 24px;
+        }
+      }
+    }
+}
+
+// HERO - BIOGRAPHY
+.hero {
+  box-sizing: border-box;
+  width: 100%;
+  height: 220px;
+
+  @include tablet {height: 410px;}
+  @include desktop {height: 560px;}
+
+  &__image {
+    width: auto;
+    height: 100%;
+    background-image: url("../assets/Images/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #323232, $alpha: 0.5);
+  }
+
+  &__text {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+    color: $color0;
+    width: 80%;
+    height: 100%;
+    line-height: 3.5rem;
+    margin: auto 25px;
+
+    @include tablet {
+      font-size: 6rem;
+      line-height: 8rem;
+      width: 70%;
+    }
+
+    @include desktop {
+      padding-top: 0px;
+      @include padding-lr-150;
+      margin-left: 0;
+      width: 40%;
+      font-size: 48px;
+      line-height: 66px;
+    }
+  }
+}
+
+// ABOUT THE MUSICIANS
+.about-the-musicians {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  @include w-h-100-auto;
+  padding: 20px;
+  color: $color3;
+
+  @include tablet {padding: 40px 20px 15px;}
+  @include desktop {
+    @include padding-lr-150;
+    padding-top: 33px;
+    padding-bottom: 15px;
+  }
+
+  &__title {
+    align-self: flex-start;
+    margin: 10px 0 20px 0;
+
+    @include tablet {
+      margin: 5px 0 30px;
+      font-size: 3.5rem;
+    }
+
+    @include desktop {
+      font-size: 28px;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100%;
+    padding-bottom: 20px;
+
+      @include tablet {
+        object-fit: cover;
+        height: 365px;
+        width: 100%;
+      }
+
+      @include desktop {
+        width: 65%;
+        height: 375px;
+        margin: 0 150px;
+        padding-bottom: 0;
+      }
+  }
+
+  &__quote, &__quote-sig {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    padding: 15px 0 15px;
+    color: $color3;
+
+    @include desktop {
+      width: 65%;
+      margin: 0 150px;
+      font-size: 10px;
+    }
+  }
+
+  &__quote {
+    @include tablet {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+      padding: 10px 0 0;
+    }
+
+    @include desktop {
+      font-size: 17px;
+      line-height: 24px;
+      width: 65%;
+      padding-left: 0;
+      margin-left: 150px;
+      padding-right: 40px;
+    }
+  }
+
+  &__quote-sig {
+    @include tablet {
+      font-size: 16px;
+      font-weight: 500;
+      padding-top: 5px;
+      padding-bottom: 35px;
+    }
+
+    @include desktop {
+      font-size: 14px;
+      padding-top: 20px;
+    }
+  }
+
+  &__bio-title {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 500;
+    padding: 20px 0 5px;
+
+    @include tablet {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+      padding: 28px 0 10px;
+    }
+
+    @include desktop {
+      font-size: 19px;
+      width: 65%;
+      margin: 0 150px;
+      padding: 10px 0 10px 0;
+    }
+  }
+
+  &__bio-text-container {
+    @include tablet {
+      @include flex-start-all;
+      flex-flow: row nowrap;
+      @include w-h-100-auto;
+    }
+
+    @include desktop {
+      width: 65%;
+      margin: 0 150px;
+    }
+  }
+
+  &__bio-text, &__bio-text2 {
+    font-size: 12.1px;
+    line-height: 20px;
+    font-weight: 400;
+    padding: 10px 0;
+
+    @include tablet {
+      font-size: 14px;
+      line-height: 24.8px;
+      width: 49%;
+      padding-right: 10px;
+      padding-bottom: 22px;
+    }
+
+    @include desktop {
+      font-size: 13px;
+      line-height: 18px;
+      width: 48%;
+      padding-top: 3px;
+    }
+  }
+}
+
+// PHOTO GALLERY
+.gallery {
+  background-color: $color0-1;
+  @include w-h-100-auto;
+  padding: 40px 25px 20px 25px;
+  @include flex-start-all;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+  color: $color2;
+
+  @include tablet {padding: 40px 20px 10px;}
+
+  @include desktop {
+    padding-top: 35px;
+    padding-bottom: 10px;
+    @include padding-lr-150;
+  }
+
+  &__writing {
+    background-image: url("../assets/Images/Photo-gallery-1.png");
+  }
+
+  &__title {
+    padding-bottom: 40px;
+
+    @include tablet {
+      font-size: 35px;
+      padding-bottom: 55px;
+    }
+
+    @include desktop {
+      font-size: 30px;
+      padding-bottom: 45px;
+    }
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      flex-flow: row wrap;
+      align-content: flex-start;
+      justify-content: space-between;
+      @include w-h-100-auto;
+    }
+  }
+
+  &__image {
+    @include w-h-100-auto;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border-radius: 10px;
+
+    @include tablet {
+      width: 48%;
+      height: 200px;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 23px;
+
+      filter: grayscale(100%);
+      transition: .5s ease-in-out;
+      &:hover {filter: grayscale(0);}
+    }
+
+    @include desktop {
+      width: 32%;
+      margin-bottom: 22px;
+    }
+  }
+}
+
+// JOIN THE CONVERSATION
+.join-the-convo {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__title {
+    padding: 25px 25px 0;
+    color: $color3;
+
+    @include tablet {
+      font-size: 36px;
+      padding-top: 53px;
+    }
+
+    @include desktop {
+      padding-top: 35px;
+      @include padding-lr-150;
+      font-size: 30px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 295px;
+    padding: 25px 25px;
+    margin: 0;
+
+    @include tablet {
+      height: 310px;
+      padding: 55px 100px 0 130px;
+    }
+
+    @include desktop {
+      height: 290px;
+      padding: 35px 380px 0 380px;
+    }
+  }
+
+  &__form-container {
+    align-self: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__squared-image {
+    position: absolute;
+    align-self: flex-start;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 175px;
+    margin-right: 0px;
+  }
+
+  &__image {
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+  }
+
+  &__subtitle {
+    color: darkgrey;
+    font-weight: 500;
+    width: 85%;
+    padding-bottom: 5px;
+    margin: 0 10px 0 60px;
+
+    @include tablet {
+      margin-right: 200px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    @include desktop {
+      font-size: 10px;
+    }
+  }
+
+  &__input-name {
+    width: 78%;
+    height: 45px;
+    padding-left: 15px;
+    margin-left: 20px;
+    margin: 10px 0px 15px 60px;
+
+    @include tablet {
+      margin: 6px 0 20px 60px;
+    }
+
+    @include desktop {
+      width: 82%;
+      height: 40px;
+      margin-right: auto;
+    }
+  }
+
+  &__form-name {
+    width: 75%;
+    height: 45px;
+  }
+
+  &__input-comment {
+    width: 78%;
+    height: 75px;
+    padding-bottom: 35px;
+    padding-left: 15px;
+    margin: 10px 0px 15px 60px;
+    word-wrap: break-word;
+
+    @include tablet {
+      margin: 6px 0 20px 60px;
+    }
+
+    @include desktop {
+      width: 82%;
+    }
+  }
+  
+  &__form-comment {
+    width: 75%;
+    height: 75px;
+  }
+
+  &__button {
+    width: 78%;
+    height: 40px;
+    background-color: #323232;
+    color: $color0-1;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin: 0 0px 0 60px;
+
+    @include tablet {
+      align-self: flex-start;
+      width: 160px;
+      height: 50px;
+      margin: 0 0 0 60%;
+    }
+
+    @include desktop {
+      height: 40px;
+      margin-left: 60%;
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 0px;
+    border: 0.1px solid rgb(229,229,229);
+    margin: 30px auto 10px;
+
+    @include tablet {
+      width: 92%;
+      text-align: left;
+      margin-right: 6%;
+    }
+
+    @include desktop {
+      width: 94.5%;
+      margin-right: 3%;
+    }
+  }
+}
+
+// JOIN THE CONVO - GENERATED COMMENTS
+.join-the-convo-comments {
+  height: auto;
+  padding: 0px 20px 20px;
+  box-sizing: border-box;
+
+  @include tablet {
+    padding: 0px 130px 25px;
+  }
+
+  @include desktop {
+    padding: 0px 380px 25px 380px;
+  }
+
+  &__container {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+
+    @include tablet {
+      height: auto;
+    }
+  }
+
+  &__comments-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 150px;
+    padding: 25px 25px 15px;
+    margin-left: 60px;
+    box-sizing: border-box;
+
+    @include tablet {
+      height: 250px;
+    }
+  }
+
+  &__circle-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: absolute;
+    width: 45px;
+    height: 100px;
+    margin: 0;
+
+    @include desktop {
+      object-fit: contain;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
+  &__image--comments {
+    display: flex;
+    flex-flow: column wrap;
+    width: 45px;
+    height: 45px;
+    margin: 0 0px 0px 0;
+    // background-image: url("../assets/icons/PNG/greycircle.png");
+  }
+
+
+  &__comments-name-date-container {
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+    align-items: flex-end;
+    justify-content: center;
+    height: 20px;
+
+    @include tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__comments-name {
+    width: 130px;
+    margin-left: 60px;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include tablet {
+      width: auto;
+      font-size: 15px;
+    }
+
+    @include desktop {
+      font-size: 13px;
+    }
+  }
+
+  &__comments-date {
+    width: 100px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 400;
+    color: darkgray;
+    margin: 0 0 1px auto;
+
+    @include tablet {
+      margin: 0 0 2px 12px;
+    }
+
+    @include desktop {
+      width: auto;
+      font-size: 13px;
+      margin: 0 0 0 12px;
+    }
+  }
+
+  &__comments {
+    font-size: 13.2px;
+    line-height: 20px;
+    font-weight: 400;
+    width: auto;
+    height: 100px;
+    margin-top: 6px;
+    margin-left: 60px;
+
+    @include tablet {
+      font-size: 13.5px;
+      height: auto;
+      margin-bottom: 70px;
+    }
+
+    @include desktop {
+      font-size: 11.5px;
+    }
+  }
+
+  &__divider {
+    width: 90%;
+    height: 0px;
+    border: 0.1px solid rgb(229,229,229);
+    margin: 20px auto;
+
+    @include tablet {
+      width: 95%;
+    }
+
+    @include desktop {
+      margin: 10px auto;
+    }
+  }
+}
+
+// FOOTER - GET IN TOUCH
+.get-in-touch {
+  background-color: $color2;
+  color: $color0;
+  @include flex-start-all;
+  flex-flow: column nowrap;
+  padding: 25px 16px 60px;
+  
+  @include tablet {padding: 45px 20px 40px;}
+
+  @include desktop {
+    padding-top: 38px;
+    padding-bottom: 40px;
+    @include padding-lr-150;
+  }
+
+    &__top-container {
+      @include tablet {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        height: 80px;
+        padding-bottom: 10px;
+      }
+
+      @include desktop {
+        justify-content: flex-start;
+      }
+    }
+
+    &__title {
+      padding: 0;
+      margin-left: 0;
+      font-weight: 600;
+
+      @include tablet {
+        text-align: left;
+        font-size: 32px;
+        width: 210px;
+        margin: 0;
+      }
+
+      @include desktop {
+        font-size: 28px;
+        width: 180px;
+      }
+    }
+    
+    &__social-container {
+      @include flex-start-all;
+      flex-flow: row nowrap;
+      width: 100%;
+      padding: 15px 0px;
+    
+      @include tablet {
+        width: 40%;
+        margin: 0;
+        padding: 8px 0 0 0;
+      }
+
+      @include desktop {
+        padding-left: 50px;
+      }
+    }
+
+    &__logo {
+      display: none;
+
+      @include tablet {
+        display: flex;
+        text-align: right;
+        height: auto;
+        font-size: 25px;
+        font-weight: 100;
+        padding: 6px 0 0 0;
+        margin: 0;
+      }
+
+      @include desktop {
+        justify-self: flex-end;;
+        margin-left: auto;
+        font-size: 20px;
+      }
+    }
+
+    &__company-container {
+      @include tablet {
+        @include flex-start-all;
+        flex-flow: row wrap;
+        @include w-h-100-auto;
+      }
+    }
+
+    &__name-container {
+      @include tablet {
+        @include flex-start-all;
+        flex-flow: column nowrap;
+        height: 165px;
+        width: 32%;
+        padding-right: 9px;
+      }
+
+      @include desktop {
+        height: 160px;
+        width: 24.5%;
+      }
+    }
+
+    &__socials {
+      flex-flow: row nowrap;
+      width: 25px;
+      height: 25px;
+      padding-right: 30px;
+      padding-bottom: 20px;
+
+      @include tablet {
+        width: 25px;
+        height: 25px;
+      }
+
+      @include desktop {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__copyright-container {
+      @include flex-start-all;
+      flex-flow: row wrap;
+      width: 90%;
+      height: 20px;
+    }
+
+    &__copyright {
+      font-weight: 100;
+      padding-right: 7px;
+    }
+
+    &__company {padding-bottom: 15px;}
+
+    &__email {
+      padding: 15px 0 30px;
+      text-decoration: none;
+    }
+
+    &__email-link, &__email-link:active {color: inherit;}
+}
+
+// SHOWS - HERO
+.shows-hero {
+  box-sizing: border-box;
+  width: 100%;
+  height: 470px;
+
+  @include tablet {height: 660px;}
+  @include desktop {height: 560px;}
+
+  &__image {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: auto;
+    height: 100%;
+    background: rgb(232,200,51);
+    background: linear-gradient(90deg, rgba(232,200,51,1) 0%, rgba(192,80,109,1) 100%);
+
+    @include tablet {
+      height: 900px;
+    }
+
+    @include desktop {
+      height: 560px;
+    }
+  }
+
+  &__wwa {
+    color: $color0;
+    width: 80%;
+    height: 50px;
+    line-height: 3.5rem;
+    padding-top: 50px;
+    margin: 0 5%;
+
+    @include tablet {
+      font-size: 24px;
+      font-weight: 500;
+      width: 70%;
+      padding-top: 90px;
+      margin-left: 20px;
+    }
+
+    @include desktop {
+      padding-top: 130px;
+      margin-left: 0;
+      @include padding-lr-150;
+      width: 30%;
+    }
+  }
+
+  &__text {
+    color: $color0;
+    width: 90%;
+    height: 250px;
+    font-size: 35px;
+    line-height: 44px;
+    margin: 0 5%;
+
+    @include tablet {
+      font-size: 5.6rem;
+      line-height: 8rem;
+      width: 70%;
+      margin-left: 20px;
+      padding-bottom: 35px;
+    }
+
+    @include desktop {
+      font-size: 50px;
+      line-height: 65px;
+      margin-left: 150px;
+      margin-right: 0;
+      width: 40%;
+    }
+  }
+
+  &__soundcloud {
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+    justify-self: flex-end;
+    width: 90%;
+    height: 100px;
+
+    @include tablet {
+      align-self: flex-start;
+      width: 60%;
+      height: 140px;
+      margin-left: 20px;
+    }
+
+    @include desktop {
+      flex-flow: column wrap;
+      align-self: flex-start;
+      justify-content: flex-start;
+      width: 30%;
+      padding-top: 250px;
+      padding-right: 90px;
+      height: 120px;
+    }
+  }
+}
+
+// SHOWS - SHOWS
+.shows-shows {
+  background-color: white;
+  @include w-h-100-auto;
+  padding: 30px 25px 20px 25px;
+  @include flex-start-all;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+  color: $color2;
+
+  @include tablet {
+    font-size: 16px;
+    padding: 45px 20px 20px;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 25px 9.1% 20px;
+    height: 550px;
+  }
+
+  &__title {
+    background-color: white;
+    padding: 0px 25px 20px 0px;
+    text-align: left;
+
+    @include tablet {
+      font-size: 35px;
+      padding-bottom: 28px;
+      width: 100%;
+      margin-right: auto;
+    }
+
+    @include desktop {
+      font-size: 30px;
+      width: 22%;
+      margin: 0 auto 0 43px;
+      padding: 0;
+    }  
+  }
+
+  &__big-screen-titles-container {
+    display: none;
+    text-align: right;
+
+    @include tablet {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      height: 30px;
+      padding-bottom: 10px;
+    }
+
+    @include desktop {
+      width: 710px;
+    }
+  }
+
+  &__big-screen-titles {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 150px;
+      color: $color1-1;
+      font-weight: 500;
+      font-size: 12px;
+
+      &:nth-child(2), &:nth-child(3) {
+        width: 110px;
+      }
+
+      &:nth-child(4) {
+        width: 182px;
+        visibility: hidden;
+      }
+    }
+
+    @include desktop {
+      width: 27.4%;
+    }
+  }
+
+  &__sub-title, &__sub-title--venue, &__sub-title--loc {
+    font-size: 12px;
+    height: 20px;
+    color: darkgrey;
+    font-weight: 500;
+    padding: 8px 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__venue, &__location {
+    font-size: 11px;
+    height: 20px;
+
+    @include tablet {
+      margin: auto 0;
+      height: auto;
+      width: 130px;
+      font-size: 14px;
+    }
+
+    @include desktop {
+      margin-left: 0px;
+      margin-right: 20px;
+      font-size: 11px;
+    }
+  }
+
+  &__date {
+    font-size: 13px;
+    font-weight: 500;
+    height: 25px;
+
+    @include tablet {
+      margin: auto 0;
+      height: auto;
+      width: 170px;
+      font-size: 16px;
+    }
+
+    @include desktop {
+      margin-left: 25%;
+      margin-right: 60px;
+      font-size: 13px;
+    }
+  }
+
+  &__button {
+    width: 95%;
+    background-color: #333;
+    color: white;
+    padding: 13px 0;
+    margin-top: 20px;
+    border-radius: 5px;
+
+    @include tablet {
+      width: 160px;
+      margin: auto 0 auto 22px;;
+    }
+
+    @include desktop {
+      font-size: 11px;
+      width: 135px;
+      margin-right: 30px;
+      margin-left: 15px;
+    }
+  }
+
+  &__divider-line {
+    margin: 18px 0;
+    width: 94%;
+    height: 0px;
+    border: 1px solid $color1;
+
+    @include tablet {
+      width: 100%;
+    }
+
+    @include desktop {
+      width: 680px;
+      margin-left: 27.7%;
+      margin-right: 3%;
+    }
+  }
+}
+
+.canvas {
+  width: 700px;
+  box-sizing: border-box;
+}
