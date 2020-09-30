@@ -13,6 +13,7 @@ h1 {
   text-align: center;
   font-size: 38px;
   font-weight: 400;
+  text-decoration: none;
 }
 
 h2 {
@@ -63,6 +64,7 @@ a {text-decoration: none;}
 
 a.navbar__link:visited {
   width: 500px;
+  text-decoration: none;
   text-emphasis: none;
   color: $color0;
 }
@@ -74,29 +76,54 @@ a.navbar__link:visited {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  height: 80px;
+  height: 120px;
   padding: 50vh auto 0;
   background-color: $color2; 
   color: $color1;
   box-sizing: border-box;
+  text-decoration: none;
 
-  @include tablet {justify-content: flex-start;}
+  @include tablet {
+    justify-content: flex-start;
+    height: 80px;
+  }
   @include desktop {
     height: 68px;
     @include padding-lr-150;
   }
 
+  &__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include tablet {width: 300px;}
+  }
+
+  &__logo{
+    align-self: flex-start;
+    justify-self: flex-start;
+    padding-top: 10px;
+    object-fit: contain;
+    height: 6.8rem;
+    // width: 14rem;
+    width: auto;
+    margin-right: -2rem;
+  }
+
     &__header {
-      width: 100%;
+      width: auto;
       padding: 10px 0 0 0;
-      margin: 0 auto;
+      margin: 0;
       font-size: 26px;
 
       @include tablet {
         font-size: 28px;
-        width: 220px;
+        width: 160px;
         height: auto;
-        margin: 0 10% 0 20px;
+        margin: 0 10% 0 0px;
         padding: 0;
         justify-self: center;
       }
@@ -109,12 +136,16 @@ a.navbar__link:visited {
     }
 
     &__link {
-      margin-left: 5px;
-      width: 600px;
+      margin-left: 15px;
+      width: auto;
+      text-align: left;
+      text-decoration: none;
+      color: #FFFFFF;
 
       @include desktop {
         margin-left: 0;
         width: 600px;
+        text-decoration: none;
       }
     }
 
@@ -130,28 +161,9 @@ a.navbar__link:visited {
       filter: opacity(65%);
       transition: .3s ease-in-out;
 
-      &:hover {filter: opacity(100%);}
-
-      @include tablet {
-        align-self: flex-end;
-        width: 22%;
-        height: auto;
-        margin: 0 8px 0 28px;
-        border-bottom: 4px solid $color2;
-        padding: 27px 0;
-      }
-
-      @include desktop {
-        width: 22%;
-        margin-left: 0px;
-        margin-right: 25px;
-        padding: 22px 0;
-        font-size: 12px;
-      }
-
       &--active {
-        color: $color0;
-        // border-bottom: 4px solid $color0;
+        color: white;
+        border-bottom: 4px solid $color0;
         padding: 8px 0;
         filter: blur(0);
         font-size: 16px;
@@ -159,11 +171,31 @@ a.navbar__link:visited {
         @include tablet {padding: 27px 0;}
         @include desktop {
           padding: 22px 0px;
-          margin-right: 24px;
+          margin-right: 14px;
         }
       }
+
+      &:hover {filter: opacity(100%);}
+
+      @include tablet {
+        align-self: flex-end;
+        width: 22%;
+        height: auto;
+        margin: 0 8px 0 8px;
+        border-bottom: 4px solid $color2;
+        padding: 27px 0;
+      }
+
+      @include desktop {
+        width: 22%;
+        margin-left: 0px;
+        margin-right: 15px;
+        padding: 22px 0;
+        font-size: 12px;
+      }
     }
-}
+    }
+
 
 // HERO - BIOGRAPHY
 .hero {
@@ -1204,4 +1236,13 @@ a.navbar__link:visited {
 .canvas {
   width: 700px;
   box-sizing: border-box;
+}
+
+.stats {
+  &__image {
+    width: 80%;
+    padding: 0 10%;
+    margin: 0 auto;
+    object-fit: contain;
+  }
 }
